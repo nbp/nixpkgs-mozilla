@@ -62,7 +62,7 @@ let
       HOME=`mktemp -d`
       set -eux
       cat ${./firefox.key} | gpg2 --import
-      gpgv2 --keyring=$HOME/.gnupg/pubring.kbx $CHKSUM_ASC $CHKSUM_FILE
+      gpg2 --verify $CHKSUM_ASC $CHKSUM_FILE
       mkdir $out
     '';
 
